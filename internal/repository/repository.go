@@ -1,4 +1,4 @@
-package tickets
+package repository
 
 import (
 	"context"

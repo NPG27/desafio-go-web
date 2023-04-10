@@ -6,7 +6,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/bootcamp-go/desafio-go-web/cmd/server/router"
+	"github.com/bootcamp-go/desafio-go-web/cmd/api/router"
 	"github.com/bootcamp-go/desafio-go-web/internal/domain"
 	"github.com/gin-gonic/gin"
 )
@@ -14,7 +14,7 @@ import (
 func main() {
 
 	// Cargo csv.
-	list, err := LoadTicketsFromFile("../../tickets.csv")
+	list, err := LoadTicketsFromFile("./data/tickets.csv")
 	if err != nil {
 		panic("Couldn't load tickets")
 	}

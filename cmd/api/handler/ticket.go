@@ -3,15 +3,15 @@ package handler
 import (
 	"net/http"
 
-	"github.com/bootcamp-go/desafio-go-web/internal/tickets"
+	"github.com/bootcamp-go/desafio-go-web/internal/service"
 	"github.com/gin-gonic/gin"
 )
 
 type Service struct {
-	service tickets.Service
+	service service.Service
 }
 
-func NewService(s tickets.Service) *Service {
+func NewService(s service.Service) *Service {
 	return &Service{
 		service: s,
 	}
@@ -38,6 +38,7 @@ func (s *Service) AverageDestination() gin.HandlerFunc {
 		destination := c.Param("dest")
 
 		avg, err := s.service.AverageDestination(c, destination)
+
 		if err != nil {
 			c.String(http.StatusInternalServerError, err.Error(), nil)
 			return
